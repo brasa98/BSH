@@ -1,0 +1,8 @@
+rm sample/Setembro\ 2023/.brkey sample/Setembro\ 2023/* -f
+rm enc -rf
+cp ~/.diario/2023/Setembro/* sample/Setembro\ 2023
+cp sample/ enc/ -r
+python3 main.py
+
+cat enc/frasedodia.txt
+cat enc/Setembro\ 2023/'25_09_23 - Quarta (Dentista).txt'

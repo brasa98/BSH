@@ -1,0 +1,4 @@
+rm frasedodia.txt frasedodia.brkey -f
+cp sample/frasedodia.txt .
+python3 main.py
+cat frasedodia.txt
