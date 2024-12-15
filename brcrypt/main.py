@@ -3,7 +3,7 @@ import brcfile, brc
 o = int(input("brcrypting\n\n1-Criptografia\n2-Criptografia de arquivos\n3-Descriptografar\n=>"))
 
 if o == 1: # Criptografia
-    o = int(input("\nMétodo:\n1-Binário\n2-Cifra de César\n3-MixHer\n=>"))
+    o = int(input("\nMétodo:\n1-Binário\n2-Cifra de César\n3-Mistureba\n=>"))
     if o == 1:
         b = brc.binit(input("Digite: "))
         print(b)
@@ -11,7 +11,7 @@ if o == 1: # Criptografia
         c = brc.shift(input("Digite a frase: "), int(input("Digite o deslocamento: ")))
         print(c)
     elif o == 3:
-        sc = brc.mixher(input("Digite a frase: "), input("Digite a seed: "))
+        sc = brc.mistureba(input("Digite a frase: "), input("Digite a seed: "))
         print(sc)
 
 elif o == 2: # Criptografia de Arquivos
@@ -27,7 +27,7 @@ elif o == 2: # Criptografia de Arquivos
         brcfile.rCrypt(path, recursive=r)
 
 elif o == 3: # Descriptografia
-    o = int(input("\nMétodo:\n1-Binário\n2-Cifra de César\n3-MixHer\n=>"))
+    o = int(input("\nMétodo:\n1-Binário\n2-Cifra de César\n3-Mistureba\n=>"))
     if o == 1:
         b = brc.unbinit(input("Digite: "))
         print(b)

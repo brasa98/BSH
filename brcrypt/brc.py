@@ -37,7 +37,7 @@ def unbinit(frase: str):
         txt += chr(int(b, 2))
     return txt
 
-def mixher(frase: str, seed):
+def mistureba(frase: str, seed):
     """
     1º: Inverter frase? 0 ou 1
     2º: César na frase? 0 ou 1

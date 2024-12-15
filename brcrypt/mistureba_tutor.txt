@@ -1,0 +1,8 @@
+Dígitos da 'seed'
+1º: Inverter frase? 0 ou 1
+2º: César na frase? 0 ou 1
+3° e 4º: Deslocamento da cifra (1 a 25)
+5°: Binário
+
+Exemplo:
+    11011 (Binário, inverter e cifra 1)

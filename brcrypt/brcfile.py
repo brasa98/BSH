@@ -34,7 +34,7 @@ def cryptFile(fname: str):
 
     linhas: list[str] | str = readFile(fname, "r")
     clearFile(fname)
-    m = int(input("\nTipo de criptografia:\n1-Inverter\n2-Binário\n3-Cifra de césar\n4-MixHer\n=>"))
+    m = int(input("\nTipo de criptografia:\n1-Inverter\n2-Binário\n3-Cifra de césar\n4-Mistureba\n=>"))
     for linha in linhas:
         with open(fname, "w") as f:
             if m == 1: f.write(linha[::-1])
@@ -44,7 +44,7 @@ def cryptFile(fname: str):
                 f.write(brc.shift(linha, s))
             elif m == 4:
                 s = input("Digite a seed: ")
-                f.write(brc.mixher(linha, s))
+                f.write(brc.mistureba(linha, s))
 
 
 def decryptFile(fname: str):
@@ -53,7 +53,7 @@ def decryptFile(fname: str):
 
     key = input("Digite a chave para descriptografar: ")
     if hashlib.sha512(key.encode()).hexdigest() == real_key:
-        m = int(input("\nQual era o método de criptografia?\n1-Inverter\n2-Binário\n3-Cifra de césar\n4-MixHer\n=>"))
+        m = int(input("\nQual era o método de criptografia?\n1-Inverter\n2-Binário\n3-Cifra de césar\n4-Mistureba\n=>"))
         linhas: list[str] | str = readFile(fname, "r")
 
         o = int(input("\nEscolha:\n1-Exibir o arquivo\n2-Descriptografar o arquivo\n=>"))
@@ -105,7 +105,7 @@ def rCrypt(path: str, recursive=True):
     
     os.system(f"chmod 444 '{path_kfile}'")
 
-    m = int(input("\nTipo de criptografia:\n1-Inverter\n2-Binário\n3-Cifra de césar\n4-MixHer\n=>"))
+    m = int(input("\nTipo de criptografia:\n1-Inverter\n2-Binário\n3-Cifra de césar\n4-Mistureba\n=>"))
     if m == 3: s = int(input("Digite o deslocamento: "))
     elif m == 4: s = input("Digite a seed: ")
 
@@ -123,7 +123,7 @@ def rCrypt(path: str, recursive=True):
                             if m == 1: f.write(linha[::-1])
                             elif m == 2: f.write(brc.binit(linha))
                             elif m == 3: f.write(brc.shift(linha, s))
-                            elif m == 4: f.write(brc.mixher(linha, s))
+                            elif m == 4: f.write(brc.mistureba(linha, s))
 
     else:
         for dir, _, files in os.walk(path):
@@ -139,7 +139,7 @@ def rCrypt(path: str, recursive=True):
                             if m == 1: f.write(linha[::-1])
                             elif m == 2: f.write(brc.binit(linha))
                             elif m == 3: f.write(brc.shift(linha, s))
-                            elif m == 4: f.write(brc.mixher(linha, s))
+                            elif m == 4: f.write(brc.mistureba(linha, s))
 
 
 def rDecrypt(path: str, recursive=True):
