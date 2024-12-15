@@ -12,16 +12,15 @@ def shift(frase: str, chave: int) -> str:
                 resultado += chr(offset + inicio)
             else:
                 resultado += caractere
-        elif caractere.isnumeric():
-            resultado += str((int(caractere) + chave) % 10)
+        elif caractere.isnumeric(): continue
         else:
             resultado += caractere
     
     return resultado
 
-binit = lambda frase: ' '.join(format(ord(letra), 'b') for letra in frase)
+prabin = lambda frase: ' '.join(format(ord(letra), 'b') for letra in frase)
 
-def isbin(txt: str):
+def ebin(txt: str):
     txt = txt.split()
     try: 
         for s in txt:
@@ -30,14 +29,14 @@ def isbin(txt: str):
     except ValueError:
         return False
 
-def unbinit(frase: str):
+def desbin(frase: str):
     bins = frase.split()
     txt = ''
     for b in bins:
         txt += chr(int(b, 2))
     return txt
 
-def mistureba(frase: str, seed):
+def misturar(frase: str, seed):
     """
     1º: Inverter frase? 0 ou 1
     2º: César na frase? 0 ou 1
@@ -50,13 +49,13 @@ def mistureba(frase: str, seed):
     
     if seed[0] == '1': frase = frase[::-1]
     if seed[1] == '1': frase = shift(frase, int(seed[2:4]))
-    if seed[4] == '1': frase = binit(frase)
+    if seed[4] == '1': frase = prabin(frase)
     return frase
 
-def unmixher(frase: str, seed):
+def desmisturar(frase: str, seed):
     seed = str(seed)
-    if isbin(frase):
-        if seed[4] == '1': frase = unbinit(frase)
+    if ebin(frase):
+        if seed[4] == '1': frase = desbin(frase)
         if seed[1] == '1': frase = shift(frase, 26 - int(seed[2:4]))
         if seed[0] == '1': frase = frase[::-1]
     else:
